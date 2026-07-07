@@ -100,7 +100,16 @@ return {
 
     ---@type table<string, vim.lsp.Config>
     local servers = {
-      clangd = {},
+      clangd = {
+        cmd = {
+          'clangd',
+          '--background-index',
+          '--clang-tidy',
+          '--header-insertion=iwyu',
+          '--completion-style=bundled',
+          '--cross-file-rename',
+        }
+      },
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
